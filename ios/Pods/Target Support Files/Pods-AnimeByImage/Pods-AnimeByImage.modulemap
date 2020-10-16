@@ -1,0 +1,6 @@
+module Pods_AnimeByImage {
+  umbrella header "Pods-AnimeByImage-umbrella.h"
+
+  export *
+  module * { export * }
+}
