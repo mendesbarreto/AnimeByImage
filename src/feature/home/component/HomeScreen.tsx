@@ -1,5 +1,5 @@
 import React from 'react';
-import AppBarComponent from '../../../component/appBar/AppBarComponent';
+import AppBarComponent from '../../../component/AppBarComponent';
 
 const HomeScreen = () => (
   <AppBarComponent title="Home" />
