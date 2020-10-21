@@ -5,10 +5,8 @@ import App from './App';
 
 export default function AppReactPaperWrapper() {
   return (
-    <SafeAreaView>
-      <PaperProvider>
-        <App />
-      </PaperProvider>
-    </SafeAreaView>
+    <PaperProvider>
+      <App />
+    </PaperProvider>
   );
 }
