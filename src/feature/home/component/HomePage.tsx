@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import { Appbar, FAB } from 'react-native-paper';
 import {
   FlatList,
   SafeAreaView, StyleSheet, View,
 } from 'react-native';
-
-import { redA100 } from 'react-native-paper/lib/typescript/src/styles/colors';
-import AnimeItemComponent from '../../../component/AnimeItemComponent';
 import AnimeInfo from '../../../model/AnimeInfo';
+import AnimeItemComponent from '../../../component/AnimeItemComponent';
 
-interface HomeScreenViewModel {
+export interface Props {
   title: string;
   animeList: [AnimeInfo];
+  onCLick: () => void; // Nesse caso deveria fazer isso
 }
 
 const styles = StyleSheet.create({
@@ -28,22 +27,20 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   animeList: {
-    flex: 1,
-    position: 'absolute',
     backgroundColor: '#ffccaa',
   },
 });
 
-const HomeScreen = (viewModel: HomeScreenViewModel) => (
+const HomePage: React.FC<Props> = (prop) => (
   <View style={styles.container}>
     <Appbar.Header>
-      <Appbar.Content title={viewModel.title} />
+      <Appbar.Content title={prop.title} />
     </Appbar.Header>
     <View style={styles.animeList}>
       <FlatList<AnimeInfo>
-        data={viewModel.animeList}
-        renderItem={({ item }) => <AnimeItemComponent animeInfo={item} />}
-        keyExtractor={((item, index) => index)}
+        data={prop.animeList}
+        renderItem={({ item }) => <AnimeItemComponent item={item} />}
+        keyExtractor={(item, index) => index.toString()}
       />
     </View>
     <SafeAreaView style={styles.fabSafeArea}>
@@ -53,8 +50,7 @@ const HomeScreen = (viewModel: HomeScreenViewModel) => (
         animated
       />
     </SafeAreaView>
-
   </View>
 );
 
-export default HomeScreen;
+export default HomePage;

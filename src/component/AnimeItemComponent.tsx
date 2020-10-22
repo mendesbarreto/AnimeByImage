@@ -11,12 +11,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export interface AnimeItemViewModel {
-  animeInfo: AnimeInfo
+export interface Props {
+  item: AnimeInfo
 }
 
-const AnimeItemComponent = (viewModel: AnimeItemViewModel) => (
-  <Image style={styles.logo} source={{ uri: viewModel.imageURL }} />
+const AnimeItemComponent = (props: Props) => (
+  <Image style={styles.logo} source={{ uri: props.item.imageURL }} />
 );
 
 export default AnimeItemComponent;
