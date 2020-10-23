@@ -4,7 +4,7 @@ import {
   FlatList,
   SafeAreaView,
   StyleSheet,
-  View, Button,
+  View,
 } from 'react-native';
 import AnimeInfo from '../../../model/AnimeInfo';
 import AnimeItemComponent from '../../../component/AnimeItemComponent';
@@ -33,6 +33,10 @@ const styles = StyleSheet.create({
   },
 });
 
+function actionAddAnime() {
+  console.log('Action add anime');
+}
+
 const HomePage: React.FC<Props> = (prop) => (
   <View style={styles.container}>
     <Appbar.Header>
@@ -50,9 +54,9 @@ const HomePage: React.FC<Props> = (prop) => (
         style={styles.fab}
         icon="plus"
         animated
+        onPress={actionAddAnime}
       />
     </SafeAreaView>
   </View>
 );
-
 export default HomePage;

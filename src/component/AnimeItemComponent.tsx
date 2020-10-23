@@ -19,7 +19,7 @@ export interface Props {
 }
 
 const AnimeItemComponent: React.FC<Props> = (props) => (
-  <Card>
+  <Card style={{ margin: 8 }}>
     <Card.Cover source={{ uri: props.anime.imageURL }} />
     <Card.Content>
       <Title>{props.anime.title}</Title>
