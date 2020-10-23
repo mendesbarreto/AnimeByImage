@@ -8,10 +8,7 @@ import AnimeInfo from '../model/AnimeInfo';
 // import { FAB } from 'react-native-paper';
 //
 const styles = StyleSheet.create({
-  logo: {
-    width: 50,
-    height: 50,
-  },
+
 });
 
 export interface Props {
