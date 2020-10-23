@@ -2,7 +2,9 @@ import * as React from 'react';
 import { Appbar, FAB } from 'react-native-paper';
 import {
   FlatList,
-  SafeAreaView, StyleSheet, View,
+  SafeAreaView,
+  StyleSheet,
+  View, Button,
 } from 'react-native';
 import AnimeInfo from '../../../model/AnimeInfo';
 import AnimeItemComponent from '../../../component/AnimeItemComponent';
@@ -10,7 +12,7 @@ import AnimeItemComponent from '../../../component/AnimeItemComponent';
 export interface Props {
   title: string;
   animeList: [AnimeInfo];
-  onCLick: () => void; // Nesse caso deveria fazer isso
+  onCLick: () => void;
 }
 
 const styles = StyleSheet.create({
@@ -20,11 +22,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   fab: {
-    marginRight: 24,
-    marginBottom: 24,
+    margin: 16,
   },
   container: {
-    flex: 1,
+    width: '100%',
+    height: '100%',
   },
   animeList: {
     backgroundColor: '#ffccaa',
@@ -37,9 +39,9 @@ const HomePage: React.FC<Props> = (prop) => (
       <Appbar.Content title={prop.title} />
     </Appbar.Header>
     <View style={styles.animeList}>
-      <FlatList<AnimeInfo>
+      <FlatList
         data={prop.animeList}
-        renderItem={({ item }) => <AnimeItemComponent item={item} />}
+        renderItem={({ item }) => <AnimeItemComponent anime={item} />}
         keyExtractor={(item, index) => index.toString()}
       />
     </View>
